@@ -1,7 +1,9 @@
-import requests
+import os
 from sys import argv
 
-API_KEY = '#YOUR_KEY'
+import requests
+
+API_KEY = os.environ['NEWS_API_KEY']
 
 URL = ('https://newsapi.org/v2/top-headlines?')
 
@@ -10,7 +12,7 @@ def get_artciles_by_category(category):
     query_parameters = {
         "category": category,
         "sortBy": "top",
-        "country": "gb",
+        "country": "in",
         "apiKey": API_KEY
     }
     return _get_articles(query_parameters)
@@ -19,7 +21,7 @@ def get_artciles_by_query(query):
     query_parameters = {
         "q": query,
         "sortBy": "top",
-        "country": "gb",
+        "country": "in",
         "apiKey": API_KEY
     }
     return _get_articles(query_parameters)
